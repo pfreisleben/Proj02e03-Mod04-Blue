@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { UpdateUsuarioDto } from './dto/update-usuario.dto';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { Prisma, Usuario } from '@prisma/client';
@@ -7,22 +7,31 @@ import { Prisma, Usuario } from '@prisma/client';
 export class UsuariosService {
   constructor(private prisma: PrismaService) {}
 
-  create(createUsuarioDto: Prisma.UsuarioCreateInput): Promise<Usuario> {
-    return this.prisma.usuario.create({
+  create(createUsuarioDto: Prisma.UsuarioCreateInput) {
+    const usuario = this.prisma.usuario.create({
       data: { ...createUsuarioDto },
     });
+
+    if (!usuario) {
+      throw new HttpException('Usuário não encontrado!', HttpStatus.NOT_FOUND);
+    }
+
+    return usuario;
   }
 
-  findAll() {
+  findAll(): Promise<Usuario[]> {
     return this.prisma.usuario.findMany();
   }
 
-  findOne(id: number) {
+  findOne(id: number): Promise<Usuario> {
     return this.prisma.usuario.findFirst({ where: { id } });
   }
 
   update(id: number, updateUsuarioDto: UpdateUsuarioDto) {
-    return `This action updates a #${id} usuario`;
+    return this.prisma.usuario.update({
+      where: { id },
+      data: { ...updateUsuarioDto },
+    });
   }
 
   remove(id: number) {
