@@ -7,16 +7,10 @@ import { Prisma, Usuario } from '@prisma/client';
 export class UsuariosService {
   constructor(private prisma: PrismaService) {}
 
-  create(createUsuarioDto: Prisma.UsuarioCreateInput) {
-    const usuario = this.prisma.usuario.create({
+  create(createUsuarioDto: Prisma.UsuarioCreateInput): Promise<Usuario> {
+    return this.prisma.usuario.create({
       data: { ...createUsuarioDto },
     });
-
-    if (!usuario) {
-      throw new HttpException('Usuário não encontrado!', HttpStatus.NOT_FOUND);
-    }
-
-    return usuario;
   }
 
   findAll(): Promise<Usuario[]> {
