@@ -1,9 +1,12 @@
 import { Injectable } from '@nestjs/common';
 import { CreateSeguindoDto } from './dto/create-seguindo.dto';
 import { UpdateSeguindoDto } from './dto/update-seguindo.dto';
+import { Prisma, Seguindo } from '@prisma/client';
+import { PrismaService } from 'src/prisma/prisma.service';
 
 @Injectable()
 export class SeguindoService {
+  constructor(private prisma: PrismaService) {}
   create(createSeguindoDto: CreateSeguindoDto) {
     return 'This action adds a new seguindo';
   }
