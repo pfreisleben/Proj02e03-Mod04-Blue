@@ -2,14 +2,15 @@ import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { UpdateUsuarioDto } from './dto/update-usuario.dto';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { Prisma, Usuario } from '@prisma/client';
+import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class UsuariosService {
   constructor(private prisma: PrismaService) {}
 
-  create(createUsuarioDto: Prisma.UsuarioCreateInput): Promise<Usuario> {
+  create(data: Prisma.UsuarioCreateInput): Promise<Usuario> {
     return this.prisma.usuario.create({
-      data: { ...createUsuarioDto },
+      data: { ...data },
     });
   }
 
