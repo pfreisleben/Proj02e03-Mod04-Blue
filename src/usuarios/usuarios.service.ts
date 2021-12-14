@@ -29,7 +29,9 @@ export class UsuariosService {
     });
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} usuario`;
+  remove(id: number): Promise<Usuario> {
+    return this.prisma.usuario.delete({
+      where: { id },
+    });
   }
 }
