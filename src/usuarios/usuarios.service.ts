@@ -8,29 +8,29 @@ import * as bcrypt from 'bcrypt';
 export class UsuariosService {
   constructor(private prisma: PrismaService) {}
 
-  create(data: Prisma.UsuarioCreateInput): Promise<Usuario> {
-    return this.prisma.usuario.create({
+  async create(data: Prisma.UsuarioCreateInput): Promise<Usuario> {
+    return await this.prisma.usuario.create({
       data: { ...data },
     });
   }
 
-  findAll(): Promise<Usuario[]> {
-    return this.prisma.usuario.findMany();
+  async findAll(): Promise<Usuario[]> {
+    return await this.prisma.usuario.findMany();
   }
 
-  findOne(id: number): Promise<Usuario> {
-    return this.prisma.usuario.findFirst({ where: { id } });
+  async findOne(id: number): Promise<Usuario | undefined> {
+    return await this.prisma.usuario.findFirst({ where: { id } });
   }
 
-  update(id: number, updateUsuarioDto: UpdateUsuarioDto) {
-    return this.prisma.usuario.update({
+  async update(id: number, updateUsuarioDto: UpdateUsuarioDto) {
+    return await this.prisma.usuario.update({
       where: { id },
       data: { ...updateUsuarioDto },
     });
   }
 
-  remove(id: number): Promise<Usuario> {
-    return this.prisma.usuario.delete({
+  async remove(id: number): Promise<Usuario> {
+    return await this.prisma.usuario.delete({
       where: { id },
     });
   }
