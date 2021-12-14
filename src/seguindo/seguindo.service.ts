@@ -1,29 +1,37 @@
 import { Injectable } from '@nestjs/common';
-import { CreateSeguindoDto } from './dto/create-seguindo.dto';
-import { UpdateSeguindoDto } from './dto/update-seguindo.dto';
-import { Prisma, Seguindo } from '@prisma/client';
 import { PrismaService } from 'src/prisma/prisma.service';
+import { Prisma, Seguindo } from '@prisma/client';
 
 @Injectable()
 export class SeguindoService {
   constructor(private prisma: PrismaService) {}
-  create(createSeguindoDto: CreateSeguindoDto) {
-    return 'This action adds a new seguindo';
+  create(createSeguindoDto: Prisma.SeguindoCreateInput): Promise<Seguindo> {
+    return this.prisma.seguindo.create({
+      data: { ...createSeguindoDto },
+    });
   }
 
-  findAll() {
-    return `This action returns all seguindo`;
+  findAll(): Promise<Seguindo[]> {
+    return this.prisma.seguindo.findMany();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} seguindo`;
+  findOne(id: number): Promise<Seguindo[]> {
+    return this.prisma.seguindo.findMany({
+      where: { usuarioId: id },
+    });
   }
 
-  update(id: number, updateSeguindoDto: UpdateSeguindoDto) {
-    return `This action updates a #${id} seguindo`;
+  update(
+    id: number,
+    updateSeguindoDto: Prisma.SeguindoUpdateInput,
+  ): Promise<Seguindo> {
+    return this.prisma.seguindo.update({
+      where: { id },
+      data: { ...updateSeguindoDto },
+    });
   }
 
   remove(id: number) {
-    return `This action removes a #${id} seguindo`;
+    return this.prisma.seguindo.delete({ where: { id } });
   }
 }
