@@ -1,73 +1,114 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
-</p>
+# API - Projeto 1 do Módulo 4 BlueEdTech
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Essa é uma API criada utilizando as aulas do Módulo 4 de Back End em NodeJS da BlueEdTech.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+A idéia é criar um CRUD utilizando o framework NestJS, em um banco de dados relacional postgres.
 
-## Description
+Linguagem Utilizada: JavaScript / TypeScript
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Banco de dados: Postgres
 
-## Installation
+## Tabelas utilizadas
 
-```bash
-$ npm install
-```
+      O projeto possui três tabelas: Filmes, Generos e Participantes.
+      O banco foi modelado seguindo a imagem abaixo:
 
-## Running the app
+![image](https://user-images.githubusercontent.com/55242537/144943617-1ae0338d-6102-4124-9322-d7ade6fccee6.png)
 
-```bash
-# development
-$ npm run start
+## Iniciando o aplicativo
 
-# watch mode
-$ npm run start:dev
+    Em modo de desenvolvimento:
+    npm run start:dev
+    Em ambiente de produção:
+    npm run start
 
-# production mode
-$ npm run start:prod
-```
+## URL Base
 
-## Test
+    https://localhost:3000
 
-```bash
-# unit tests
-$ npm run test
+## Listando todos os registros na tabela (GET)
 
-# e2e tests
-$ npm run test:e2e
+        {urlBase}/filmes
+        {urlBase}/generos
+        {urlBase}/participantes
 
-# test coverage
-$ npm run test:cov
-```
+## Os retornos da aplicação estão no formato JSON, exemplo:
 
-## Support
+### Retorno de {urlBase}/filmes
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+        [{"id": 3,"nome": "teste","imagem": "teste","data_lancamento": "1970-01-01T00:00:00.000Z",
+        "tempo_duracao": "1970-01-01T00:00:00.000Z"},{"id": 4,"nome": "Teste","imagem": "Teste",
+        "data_lancamento": "2020-07-10T18:00:00.000Z","tempo_duracao": "2020-07-10T18:00:00.000Z"}]
 
-## Stay in touch
+## Listando objeto específico (GET)
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+### Deverá ser passado um parametro(nome) na rota _/{urlBase}/{tabela}/{id}_, exemplo:
 
-## License
+        {urlBase}/filmes/1
+        {urlBase}/generos/2
+        {urlBase}/participantes/3
+        Será retornado um objeto no formato JSON com os dados do banco.
 
-Nest is [MIT licensed](LICENSE).
+## Adicionando novos objetos (POST)
+
+### Para adicionar um novo objeto a alguma tabela do banco, deverá ser enviado um JSON para a rota correta, tendo os dados corretos, caso contrário a API retornará um erro. Campos abaixo marcados com "?" são opcionais.
+
+#### Para adicionar um novo objeto na tabela **FILMES**:
+
+      Rota: /filmes/
+      Fomato JSON esperado: { "nome": String, "imagem": String?, "data_lancamento": string, "tempo_duracao": String }
+
+#### Para adicionar um novo objeto na tabela **GENEROS**:
+
+      Rota: /generos/
+      Fomato JSON esperado: { "nome": String, "filmeId": Number }
+
+#### Para adicionar um novo objeto na tabela **PARTICIPANTES**:
+
+      Rota: /participantes/
+      Fomato JSON esperado: { "nome": String, "imagem": String,
+      "data_nascimento": String, "ator": Boolean, "staff": Boolean, "filmeId": Number }
+
+### Caso exista algum problema com os dados do JSON enviado, a aplicação retornará um erro com detalhes.
+
+### Caso o objeto seja adicionado com sucesso, a API retornará um JSON igual ao objeto adicionado ao banco.
+
+## Atualizando um objeto (PATCH)
+
+### Para atualizar uma linha de alguma tabela, deverá ser informado o ID do objeto na rota, e enviado um JSON com os novos valores através do método PATCH.
+
+#### Para atualizar um novo objeto na tabela **FILMES**:
+
+      Rota: /filmes/{id}
+      Fomato JSON esperado: { "nome": String, "imagem": String?, "data_lancamento": string, "tempo_duracao": String }
+
+#### Para adicionar um novo objeto na tabela **GENEROS**:
+
+      Rota: /generos/{id}
+      Fomato JSON esperado: { "nome": String, "filmeId": Number }
+
+#### Para adicionar um novo objeto na tabela **PARTICIPANTES**:
+
+      Rota: /participantes/{id}
+      Fomato JSON esperado: { "nome": String, "imagem": String,
+      "data_nascimento": String, "ator": Boolean, "staff": Boolean, "filmeId": Number }
+
+### Caso o objeto seja atualizado com sucesso, a API retornará um JSON igual ao objeto atualizado no banco.
+
+## Excluindo um objeto (DELETE)
+
+### Para deletar um objeto de alguma tabela, deverá ser informado o ID do objeto na rota.
+
+#### Para deletar um objeto na tabela **FILMES**:
+
+      Rota: /filmes/{id}
+
+#### Para deletar um objeto na tabela **GENEROS**:
+
+      Rota: /generos/{id}
+
+#### Para deletar um objeto na tabela **PARTICIPANTES**:
+
+      Rota: /participantes/{id}
+
+### Caso o objeto seja deletado com sucesso, a API retornará um JSON igual ao objeto deletado.
