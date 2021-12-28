@@ -10,10 +10,10 @@ Banco de dados: Postgres
 
 ## Tabelas utilizadas
 
-      O projeto possui três tabelas: Filmes, Generos e Participantes.
+      O projeto possui quatro tabelas: Usuário, Seguidores, Seguindo e Tweet.
       O banco foi modelado seguindo a imagem abaixo:
 
-![image](https://user-images.githubusercontent.com/55242537/144943617-1ae0338d-6102-4124-9322-d7ade6fccee6.png)
+![image](https://lh3.googleusercontent.com/L_ldKFfE_7KNGkip9JZa3q0Fr7fiR3xaW4_ytn2QaR0p86QcivY16x1TKFKb5v2uYGJB_ZnonTpnveM=w1349-h621)
 
 ## Iniciando o aplicativo
 
@@ -25,16 +25,21 @@ Banco de dados: Postgres
 ## URL Base
 
     https://localhost:3000
+    
+## Acesso Swagger
 
-## Listando todos os registros na tabela (GET)
+    https://localhost:3000/api
 
-        {urlBase}/filmes
-        {urlBase}/generos
-        {urlBase}/participantes
+## Listando todos os registros nas tabelas (GET)
+
+        {urlBase}/usuarios
+        {urlBase}/seguidores
+        {urlBase}/seguindo
+        {urlBase}/tweets
 
 ## Os retornos da aplicação estão no formato JSON, exemplo:
 
-### Retorno de {urlBase}/filmes
+### Retorno de {urlBase}/usuarios
 
         [{"id": 3,"nome": "teste","imagem": "teste","data_lancamento": "1970-01-01T00:00:00.000Z",
         "tempo_duracao": "1970-01-01T00:00:00.000Z"},{"id": 4,"nome": "Teste","imagem": "Teste",
