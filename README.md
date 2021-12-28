@@ -49,7 +49,7 @@ Banco de dados: Postgres
 
 ## Listando objeto específico (GET)
 
-### Deverá ser passado um parametro(nome) na rota _/{urlBase}/{tabela}/{id}_, exemplo:
+### Deverá ser passado um parametro(id) na rota _/{urlBase}/{tabela}/{id}_, exemplo:
 
         {urlBase}/usuarios/1
         {urlBase}/seguidores/2
