@@ -1,8 +1,11 @@
-import { IsNotEmpty, IsInt } from 'class-validator';
+import { IsNotEmpty, IsInt, IsString } from 'class-validator';
 export class CreateTweetDto {
-  @IsInt()
+  @IsString()
   @IsNotEmpty()
-  idSeguidor: number;
+  texto: string;
+
+  @IsString()
+  emoji:string;
 
   @IsInt()
   @IsNotEmpty()
