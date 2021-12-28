@@ -6,7 +6,13 @@ import { TweetsModule } from 'src/tweets/tweets.module';
 import { UsuariosModule } from 'src/usuarios/usuarios.module';
 
 @Module({
-  imports: [UsuariosModule, PrismaModule, SeguidoresModule, SeguindoModule, TweetsModule],
+  imports: [
+    UsuariosModule,
+    PrismaModule,
+    SeguidoresModule,
+    SeguindoModule,
+    TweetsModule,
+  ],
   controllers: [],
   providers: [],
 })
