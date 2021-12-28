@@ -6,6 +6,6 @@ import { PrismaService } from 'src/prisma/prisma.service';
 @Module({
   controllers: [TweetsController],
   providers: [TweetsService, PrismaService],
-  imports: [PrismaService]
+  //imports: [PrismaService],
 })
 export class TweetsModule {}
