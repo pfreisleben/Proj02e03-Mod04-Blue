@@ -2,7 +2,7 @@
 
 Essa é uma API criada utilizando as aulas do Módulo 4 de Back End em NodeJS da BlueEdTech.
 
-A idéia é criar um CRUD utilizando o framework NestJS, em um banco de dados relacional postgres, utilizando JWT para autenticação, Prisma como ORM e Swagger para documentação das rotas.
+A idéia é criar um CRUD utilizando o framework NestJS, em um banco de dados relacional postgres, utilizando JWT para criação e envio de token, Prisma como ORM e Swagger para documentação das rotas.
 
 Linguagem Utilizada: JavaScript / TypeScript
 
