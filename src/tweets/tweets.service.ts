@@ -7,23 +7,26 @@ import { UpdateTweetDto } from './dto/update-tweet.dto';
 @Injectable()
 export class TweetsService {
   constructor(private prisma: PrismaService){}
-  create(createTweetDto: CreateTweetDto) {
-    return 'This action adds a new tweet';
+  create(createTweetDto: CreateTweetDto): Promise<Tweet> {
+    return this.prisma.tweet.create({data: {... createTweetDto}})
   }
 
   findAll() {
-    return `This action returns all tweets`;
+    return this.prisma.tweet.findMany();
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} tweet`;
+    return this.prisma.tweet.findUnique({where: {id}})
   }
 
   update(id: number, updateTweetDto: UpdateTweetDto) {
-    return `This action updates a #${id} tweet`;
+    return this.prisma.tweet.update({
+      where: {id},
+      data: {... updateTweetDto}
+    })
   }
 
   remove(id: number) {
-    return `This action removes a #${id} tweet`;
+    return this.prisma.tweet.delete({where: {id}})
   }
 }
