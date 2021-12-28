@@ -12,8 +12,9 @@ Banco de dados: Postgres
 
       O projeto possui quatro tabelas: Usuário, Seguidores, Seguindo e Tweet.
       O banco foi modelado seguindo a imagem abaixo:
+      
+![Proj 02](https://user-images.githubusercontent.com/55242537/147594560-77bfb778-25f8-41e1-bdfd-4402a57900b7.png)
 
-https://lh3.googleusercontent.com/L_ldKFfE_7KNGkip9JZa3q0Fr7fiR3xaW4_ytn2QaR0p86QcivY16x1TKFKb5v2uYGJB_ZnonTpnveM=w1349-h621
 
 ## Iniciando o aplicativo
 
