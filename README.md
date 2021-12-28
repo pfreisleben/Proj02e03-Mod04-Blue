@@ -128,16 +128,19 @@ Banco de dados: Postgres
 
 ### Para deletar um objeto de alguma tabela, deverá ser informado o ID do objeto na rota.
 
-#### Para deletar um objeto na tabela **FILMES**:
+#### Para deletar um objeto na tabela **USUARIOS**:
 
-      Rota: /filmes/{id}
+      Rota: /usuarios/{id}
 
-#### Para deletar um objeto na tabela **GENEROS**:
+#### Para deletar um objeto na tabela **SEGUIDORES**:
 
-      Rota: /generos/{id}
+      Rota: /seguidores/{id}
 
-#### Para deletar um objeto na tabela **PARTICIPANTES**:
+#### Para deletar um objeto na tabela **SEGUINDO**:
 
-      Rota: /participantes/{id}
+      Rota: /seguindo/{id}
+#### Para deletar um objeto na tabela **TWEETS**:
+
+      Rota: /tweets/{id}
 
 ### Caso o objeto seja deletado com sucesso, a API retornará um JSON igual ao objeto deletado.
