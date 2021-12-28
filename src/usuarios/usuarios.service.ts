@@ -3,15 +3,35 @@ import { UpdateUsuarioDto } from './dto/update-usuario.dto';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { Prisma, Usuario } from '@prisma/client';
 import * as bcrypt from 'bcrypt';
+import { CreateUsuarioDto } from './dto/create-usuario.dto';
 
 @Injectable()
 export class UsuariosService {
   constructor(private prisma: PrismaService) {}
 
-  async create(data: Prisma.UsuarioCreateInput): Promise<Usuario> {
-    return await this.prisma.usuario.create({
-      data: { ...data },
+  async create(data: CreateUsuarioDto): Promise<Usuario> {
+    data.senha = await bcrypt.hash(data.senha, 10);
+    return await this.prisma.usuario.create({ data });
+  }
+
+  async findByLogin(login: CreateUsuarioDto): Promise<Usuario> {
+    const user = await this.prisma.usuario.findFirst({
+      where: {
+        email: login.email,
+      },
     });
+
+    if (!user) {
+      throw new HttpException('usuario nao encontrado', HttpStatus.NOT_FOUND);
+    }
+
+    const senhaIgual = await bcrypt.compare(login.senha, user.senha);
+
+    if (!senhaIgual) {
+      throw new HttpException('senha invalida', HttpStatus.UNAUTHORIZED);
+    }
+
+    return user;
   }
 
   async findAll(): Promise<Usuario[]> {
