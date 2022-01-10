@@ -55,18 +55,18 @@ model Usuario { // DTO FEITO
   created_at    DateTime        @default(now()) @map("created_at")
 }
 
-model CategoriasOnTweets {
+model CategoriasOnTweets { // DTO FEITO
   tweet       Tweet     @relation(fields: [tweetId], references: [id])
   tweetId     Int
-  categoria   Categoria @relation(fields: [categoriaid], references: [id])
-  categoriaid Int
+  categoria   Categoria @relation(fields: [categoriaId], references: [id])
+  categoriaId Int
   assignedAt  DateTime  @default(now())
   assignedBy  String
 
-  @@id([tweetId, categoriaid])
+  @@id([tweetId, categoriaId])
 }
 
-model FavoriteTweet {
+model FavoriteTweet { //DTO FEITO
   tweetId    Int
   tweet      Tweet    @relation(fields: [tweetId], references: [id])
   usuarioId  Int
