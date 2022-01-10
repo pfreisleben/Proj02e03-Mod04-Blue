@@ -14,65 +14,65 @@ model Tweet {
   usuario       Usuario              @relation(fields: [usuarioId], references: [id])
   categorias    CategoriasOnTweets[]
   favoriteTweet FavoriteTweet[]
-  criadoEm      DateTime             @default(now()) @map("created_at")
+  created_at    DateTime             @default(now()) @map("created_at")
 }
 
 model Categoria {
-  id       Int                  @id @default(autoincrement())
-  name     String
-  tweet    CategoriasOnTweets[]
-  criadoEm DateTime             @default(now()) @map("created_at")
+  id         Int                  @id @default(autoincrement())
+  name       String
+  tweet      CategoriasOnTweets[]
+  created_at DateTime             @default(now()) @map("created_at")
 }
 
 model Seguidores {
-  id        Int      @id @default(autoincrement())
-  name      String
-  usuarioId Int
-  usuario   Usuario  @relation(fields: [usuarioId], references: [id])
-  criadoEm  DateTime @default(now()) @map("created_at")
+  id         Int      @id @default(autoincrement())
+  name       String
+  usuarioId  Int
+  usuario    Usuario  @relation(fields: [usuarioId], references: [id])
+  created_at DateTime @default(now()) @map("created_at")
 }
 
 model Seguindo {
-  id        Int      @id @default(autoincrement())
-  name      String
-  usuarioId Int
-  usuario   Usuario  @relation(fields: [usuarioId], references: [id])
-  criadoEm  DateTime @default(now()) @map("created_at")
+  id         Int      @id @default(autoincrement())
+  name       String
+  usuarioId  Int
+  usuario    Usuario  @relation(fields: [usuarioId], references: [id])
+  created_at DateTime @default(now()) @map("created_at")
 }
 
 model Usuario {
   id            Int             @id @default(autoincrement())
-  name          String
-  lastname      String
-  username      String          @unique
-  password      String
-  about         String
-  birthday      String
+  nome          String
+  sobrenome     String
+  email         String          @unique
+  senha         String
+  sobre         String
+  aniversario   String
   tweet         Tweet[]
   seguidores    Seguidores[]
   seguindo      Seguindo[]
   favoriteTweet FavoriteTweet[]
-  criadoEm      DateTime        @default(now()) @map("created_at")
+  created_at    DateTime        @default(now()) @map("created_at")
 }
 
 model CategoriasOnTweets {
-  tweet       Tweet     @relation(fields: [tweetid], references: [id])
-  tweetid     Int
+  tweet       Tweet     @relation(fields: [tweetId], references: [id])
+  tweetId     Int
   categoria   Categoria @relation(fields: [categoriaid], references: [id])
   categoriaid Int
   assignedAt  DateTime  @default(now())
   assignedBy  String
 
-  @@id([tweetid, categoriaid])
+  @@id([tweetId, categoriaid])
 }
 
 model FavoriteTweet {
-  tweetid    Int
-  tweet      Tweet    @relation(fields: [tweetid], references: [id])
+  tweetId    Int
+  tweet      Tweet    @relation(fields: [tweetId], references: [id])
   usuarioId  Int
   usuario    Usuario  @relation(fields: [usuarioId], references: [id])
   assignedAt DateTime @default(now())
   assignedBy String
 
-  @@id([tweetid, usuarioId])
+  @@id([tweetId, usuarioId])
 }
