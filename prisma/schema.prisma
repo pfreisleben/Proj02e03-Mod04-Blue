@@ -17,16 +17,16 @@ model Tweet { // DTO FEITO
   created_at    DateTime             @default(now()) @map("created_at")
 }
 
-model Categoria {
+model Categoria { // DTO FEITO
   id         Int                  @id @default(autoincrement())
-  name       String
+  nome       String
   tweet      CategoriasOnTweets[]
   created_at DateTime             @default(now()) @map("created_at")
 }
 
 model Seguidores {
   id         Int      @id @default(autoincrement())
-  name       String
+  nome       String
   usuarioId  Int
   usuario    Usuario  @relation(fields: [usuarioId], references: [id])
   created_at DateTime @default(now()) @map("created_at")
@@ -34,7 +34,7 @@ model Seguidores {
 
 model Seguindo {
   id         Int      @id @default(autoincrement())
-  name       String
+  nome       String
   usuarioId  Int
   usuario    Usuario  @relation(fields: [usuarioId], references: [id])
   created_at DateTime @default(now()) @map("created_at")

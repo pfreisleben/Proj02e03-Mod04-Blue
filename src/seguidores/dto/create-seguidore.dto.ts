@@ -1,8 +1,8 @@
-import { IsNotEmpty, IsInt } from 'class-validator';
+import { IsNotEmpty, IsInt, IsString } from 'class-validator';
 export class CreateSeguidoreDto {
-  @IsInt()
+  @IsString()
   @IsNotEmpty()
-  idSeguidor: number;
+  nome: string;
 
   @IsInt()
   @IsNotEmpty()
