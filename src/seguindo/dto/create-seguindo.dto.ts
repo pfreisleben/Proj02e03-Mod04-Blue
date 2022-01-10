@@ -1,10 +1,10 @@
-import { IsInt, IsNotEmpty } from 'class-validator';
+import { IsInt, IsNotEmpty, IsString } from 'class-validator';
 export class CreateSeguindoDto {
   @IsInt()
   @IsNotEmpty()
   usuarioId: number;
 
-  @IsInt()
+  @IsString()
   @IsNotEmpty()
-  idSeguindo: number;
+  nome: string;
 }
