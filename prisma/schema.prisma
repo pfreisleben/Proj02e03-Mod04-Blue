@@ -9,38 +9,38 @@ datasource db {
 
 model Tweet {
   id            Int                  @id @default(autoincrement())
-  content       String               @db.VarChar(140)
-  userid        Int
-  user          User                 @relation(fields: [userid], references: [id])
-  categories    CategoriesOnTweets[]
+  conteudo      String               @db.VarChar(140)
+  usuarioId     Int
+  usuario       Usuario              @relation(fields: [usuarioId], references: [id])
+  categorias    CategoriasOnTweets[]
   favoriteTweet FavoriteTweet[]
-  createdAt     DateTime             @default(now()) @map("created_at")
+  criadoEm      DateTime             @default(now()) @map("created_at")
 }
 
-model Category {
-  id        Int                  @id @default(autoincrement())
-  name      String
-  tweet     CategoriesOnTweets[]
-  createdAt DateTime             @default(now()) @map("created_at")
+model Categoria {
+  id       Int                  @id @default(autoincrement())
+  name     String
+  tweet    CategoriasOnTweets[]
+  criadoEm DateTime             @default(now()) @map("created_at")
 }
 
-model Follower {
+model Seguidores {
   id        Int      @id @default(autoincrement())
   name      String
-  userid    Int
-  user      User     @relation(fields: [userid], references: [id])
-  createdAt DateTime @default(now()) @map("created_at")
+  usuarioId Int
+  usuario   Usuario  @relation(fields: [usuarioId], references: [id])
+  criadoEm  DateTime @default(now()) @map("created_at")
 }
 
-model Following {
+model Seguindo {
   id        Int      @id @default(autoincrement())
   name      String
-  userid    Int
-  user      User     @relation(fields: [userid], references: [id])
-  createdAt DateTime @default(now()) @map("created_at")
+  usuarioId Int
+  usuario   Usuario  @relation(fields: [usuarioId], references: [id])
+  criadoEm  DateTime @default(now()) @map("created_at")
 }
 
-model User {
+model Usuario {
   id            Int             @id @default(autoincrement())
   name          String
   lastname      String
@@ -49,30 +49,30 @@ model User {
   about         String
   birthday      String
   tweet         Tweet[]
-  follower      Follower[]
-  following     Following[]
+  seguidores    Seguidores[]
+  seguindo      Seguindo[]
   favoriteTweet FavoriteTweet[]
-  createdAt     DateTime        @default(now()) @map("created_at")
+  criadoEm      DateTime        @default(now()) @map("created_at")
 }
 
-model CategoriesOnTweets {
-  tweet      Tweet    @relation(fields: [tweetid], references: [id])
-  tweetid    Int
-  category   Category @relation(fields: [categoryid], references: [id])
-  categoryid Int
-  assignedAt DateTime @default(now())
-  assignedBy String
+model CategoriasOnTweets {
+  tweet       Tweet     @relation(fields: [tweetid], references: [id])
+  tweetid     Int
+  categoria   Categoria @relation(fields: [categoriaid], references: [id])
+  categoriaid Int
+  assignedAt  DateTime  @default(now())
+  assignedBy  String
 
-  @@id([tweetid, categoryid])
+  @@id([tweetid, categoriaid])
 }
 
 model FavoriteTweet {
   tweetid    Int
   tweet      Tweet    @relation(fields: [tweetid], references: [id])
-  userid     Int
-  user       User     @relation(fields: [userid], references: [id])
+  usuarioId  Int
+  usuario    Usuario  @relation(fields: [usuarioId], references: [id])
   assignedAt DateTime @default(now())
   assignedBy String
 
-  @@id([tweetid, userid])
+  @@id([tweetid, usuarioId])
 }
