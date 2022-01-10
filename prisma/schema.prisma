@@ -7,7 +7,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Tweet {
+model Tweet { // DTO FEITO
   id            Int                  @id @default(autoincrement())
   conteudo      String               @db.VarChar(140)
   usuarioId     Int
