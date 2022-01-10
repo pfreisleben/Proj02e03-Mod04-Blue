@@ -12,6 +12,10 @@ export class CreateUsuarioDto {
   nome: string;
 
   @IsNotEmpty()
+  @IsString()
+  sobrenome: string;
+
+  @IsNotEmpty()
   @IsEmail()
   email: string;
 
@@ -21,13 +25,9 @@ export class CreateUsuarioDto {
 
   @IsOptional()
   @IsString()
-  imagem: string;
-
-  @IsString()
-  @IsNotEmpty()
-  bio: string;
+  sobre: string;
 
   @IsDateString()
   @IsNotEmpty()
-  nascimento: Date;
+  aniversario: Date;
 }

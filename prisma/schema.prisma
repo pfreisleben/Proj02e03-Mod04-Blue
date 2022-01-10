@@ -40,7 +40,7 @@ model Seguindo {
   created_at DateTime @default(now()) @map("created_at")
 }
 
-model Usuario {
+model Usuario { // DTO FEITO
   id            Int             @id @default(autoincrement())
   nome          String
   sobrenome     String
