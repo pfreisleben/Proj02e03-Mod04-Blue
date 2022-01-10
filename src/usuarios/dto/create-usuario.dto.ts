@@ -29,5 +29,5 @@ export class CreateUsuarioDto {
 
   @IsDateString()
   @IsNotEmpty()
-  aniversario: Date;
+  aniversario: string;
 }
