@@ -1,6 +1,5 @@
 import { Module } from '@nestjs/common';
 import { AuthModule } from 'src/auth/auth.module';
-import { CategoriaTweetController } from 'src/categoria-tweet/categoria-tweet.controller';
 import { CategoriaTweetModule } from 'src/categoria-tweet/categoria-tweet.module';
 import { CategoriasModule } from 'src/categorias/categorias.module';
 import { FavoritoTweetModule } from 'src/favorito-tweet/favorito-tweet.module';
