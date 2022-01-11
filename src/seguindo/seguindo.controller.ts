@@ -23,13 +23,11 @@ export class SeguindoController {
   }
 
   @Get()
-  @UseGuards(AuthGuard('jwt'))
   findAll() {
     return this.seguindoService.findAll();
   }
 
   @Get(':id')
-  @UseGuards(AuthGuard('jwt'))
   findOne(@Param('id') id: string) {
     return this.seguindoService.findOne(+id);
   }

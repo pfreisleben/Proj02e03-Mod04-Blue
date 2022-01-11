@@ -15,13 +15,11 @@ export class TweetsController {
   }
 
   @Get()
-  @UseGuards(AuthGuard('jwt'))
   findAll() {
     return this.tweetsService.findAll();
   }
 
   @Get(':id')
-  @UseGuards(AuthGuard('jwt'))
   findOne(@Param('id') id: string) {
     return this.tweetsService.findOne(+id);
   }

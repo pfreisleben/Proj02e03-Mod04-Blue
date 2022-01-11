@@ -17,18 +17,17 @@ export class SeguidoresController {
   constructor(private readonly seguidoresService: SeguidoresService) {}
 
   @Post()
+  @UseGuards(AuthGuard('jwt'))
   create(@Body() createSeguidoreDto: CreateSeguidoreDto) {
     return this.seguidoresService.create(createSeguidoreDto);
   }
 
   @Get()
-  @UseGuards(AuthGuard('jwt'))
   findAll() {
     return this.seguidoresService.findAll();
   }
 
   @Get(':id')
-  @UseGuards(AuthGuard('jwt'))
   findOne(@Param('id') id: string) {
     return this.seguidoresService.findOne(+id);
   }
