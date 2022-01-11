@@ -7,8 +7,8 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.useGlobalPipes(new ValidationPipe());
   const config = new DocumentBuilder()
-    .setTitle('Api')
-    .setDescription('Api')
+    .setTitle('Projeto 03(Twitter) - BlueEdTech')
+    .setDescription('Dupla: Pedro e Artur')
     .setVersion('1.0')
     .build();
   const document = SwaggerModule.createDocument(app, config);
