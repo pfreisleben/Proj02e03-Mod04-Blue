@@ -4,10 +4,16 @@ Essa é uma API criada utilizando as aulas do Módulo 4 de Back End em NodeJS da
 
 A idéia é criar um CRUD utilizando o framework NestJS, em um banco de dados relacional postgres, utilizando JWT para criação e envio de token, Prisma como ORM e Swagger para documentação das rotas.
 
-Linguagem Utilizada: JavaScript / TypeScript
-
-Banco de dados: Postgres
-
+Tecnologias Utilizadas:
+<div style="display: inline_block"><br>
+  <img align="center" alt="Rafa-Js" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg">
+  <img align="center" alt="Rafa-Js" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-plain.svg">
+      <img align="center" alt="Rafa-Node" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-plain.svg">
+      <img align="center" alt="Rafa-Nest" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nestjs/nestjs-plain.svg">
+      <img align="center" alt="Rafa-Postgres" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-plain.svg">
+      <img align="center" alt="Rafa-Prisma" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/prisma/prisma-plain.svg">
+      <img align="center" alt="Rafa-Swagger" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/swagger/swagger-plain.svg">
+</div>
 ## Tabelas utilizadas
 
       O projeto possui quatro tabelas: Usuário, Seguidores, Seguindo e Tweet.

@@ -6,11 +6,12 @@ import {
   Patch,
   Param,
   Delete,
+  UseGuards,
 } from '@nestjs/common';
 import { SeguidoresService } from './seguidores.service';
 import { CreateSeguidoreDto } from './dto/create-seguidore.dto';
 import { UpdateSeguidoreDto } from './dto/update-seguidore.dto';
-
+import { AuthGuard } from '@nestjs/passport';
 @Controller('seguidores')
 export class SeguidoresController {
   constructor(private readonly seguidoresService: SeguidoresService) {}
@@ -21,16 +22,19 @@ export class SeguidoresController {
   }
 
   @Get()
+  @UseGuards(AuthGuard('jwt'))
   findAll() {
     return this.seguidoresService.findAll();
   }
 
   @Get(':id')
+  @UseGuards(AuthGuard('jwt'))
   findOne(@Param('id') id: string) {
     return this.seguidoresService.findOne(+id);
   }
 
   @Patch(':id')
+  @UseGuards(AuthGuard('jwt'))
   update(
     @Param('id') id: string,
     @Body() updateSeguidoreDto: UpdateSeguidoreDto,
@@ -39,6 +43,7 @@ export class SeguidoresController {
   }
 
   @Delete(':id')
+  @UseGuards(AuthGuard('jwt'))
   remove(@Param('id') id: string) {
     return this.seguidoresService.remove(+id);
   }
