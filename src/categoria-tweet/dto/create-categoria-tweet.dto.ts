@@ -9,6 +9,10 @@ export class CreateCategoriaTweetDto {
   @IsNotEmpty()
   tweetId: number;
 
+  @IsString()
+  @IsNotEmpty()
+  assignedBy: string;
+
   @IsInt()
   @IsNotEmpty()
   categoriaId: number;
