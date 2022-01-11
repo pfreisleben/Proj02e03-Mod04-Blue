@@ -6,6 +6,6 @@ export class CreateCategoriaDto {
 
   @IsNotEmpty()
   @IsString()
-  name: string;
+  nome: string;
 
 }

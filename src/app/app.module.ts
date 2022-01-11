@@ -1,5 +1,8 @@
 import { Module } from '@nestjs/common';
 import { AuthModule } from 'src/auth/auth.module';
+import { CategoriaTweetController } from 'src/categoria-tweet/categoria-tweet.controller';
+import { CategoriaTweetModule } from 'src/categoria-tweet/categoria-tweet.module';
+import { CategoriasModule } from 'src/categorias/categorias.module';
 import { FavoritoTweetModule } from 'src/favorito-tweet/favorito-tweet.module';
 import { PrismaModule } from 'src/prisma/prisma.module';
 import { SeguidoresModule } from 'src/seguidores/seguidores.module';
@@ -15,7 +18,9 @@ import { UsuariosModule } from 'src/usuarios/usuarios.module';
     SeguindoModule,
     TweetsModule,
     AuthModule,
-    FavoritoTweetModule
+    FavoritoTweetModule,
+    CategoriasModule,
+    CategoriaTweetModule
   ],
   controllers: [],
   providers: [],
