@@ -1,15 +1,19 @@
 import { Injectable } from '@nestjs/common';
+import { Prisma, CategoriasOnTweets } from '@prisma/client';
+import { PrismaService } from 'src/prisma/prisma.service';
 import { CreateCategoriaTweetDto } from './dto/create-categoria-tweet.dto';
 import { UpdateCategoriaTweetDto } from './dto/update-categoria-tweet.dto';
 
 @Injectable()
 export class CategoriaTweetService {
-  create(createCategoriaTweetDto: CreateCategoriaTweetDto) {
-    return 'This action adds a new categoriaTweet';
+  constructor(private prisma: PrismaService) {}
+
+  create(data: CreateCategoriaTweetDto) {
+    return this.prisma.categoriasOnTweets.create({ data })
   }
 
   findAll() {
-    return `This action returns all categoriaTweet`;
+    return this.prisma.categoriasOnTweets.findMany();
   }
 
   findOne(id: number) {
