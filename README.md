@@ -1,18 +1,19 @@
 # API - Projeto 2 do Módulo 4 BlueEdTech
 
-Essa é uma API criada utilizando as aulas do Módulo 4 de Back End em NodeJS da BlueEdTech.
+<img align="right" height="170" width="200" src="https://c.tenor.com/RNpjaR9Iq0oAAAAC/files-api.gif">
 
+Essa é uma API criada utilizando as aulas do Módulo 4 de Back End em NodeJS da BlueEdTech.
 A idéia é criar um CRUD utilizando o framework NestJS, em um banco de dados relacional postgres, utilizando JWT para criação e envio de token, Prisma como ORM e Swagger para documentação das rotas.
 
 <div style="display: inline_block"><br>
   Tecnologias Utilizadas:
-  <img align="center" alt="Rafa-Js" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg">
-  <img align="center" alt="Rafa-Js" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-plain.svg">
-      <img align="center" alt="Rafa-Node" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-plain.svg">
-      <img align="center" alt="Rafa-Nest" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nestjs/nestjs-plain.svg">
-      <img align="center" alt="Rafa-Postgres" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-plain.svg">
-      <img align="center" alt="Rafa-Nest" height="30" width="80" src="https://miro.medium.com/max/690/1*aKVg84SP5oPV9fwOnbl6yQ.png">
-      <img align="center" alt="Rafa-Nest" height="30" width="30" src="https://avatars.githubusercontent.com/u/17219288?s=280&v=4">
+  <img align="center" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg">
+  <img align="center" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-plain.svg">
+      <img align="center" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-plain.svg">
+      <img align="center" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nestjs/nestjs-plain.svg">
+      <img align="center" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-plain.svg">
+      <img align="center" height="30" width="80" src="https://miro.medium.com/max/690/1*aKVg84SP5oPV9fwOnbl6yQ.png">
+      <img align="center" height="30" width="30" src="https://avatars.githubusercontent.com/u/17219288?s=280&v=4">
 </div>
 
 
