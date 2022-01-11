@@ -2,6 +2,7 @@ import {
   IsString,
   IsNotEmpty,
   IsInt,
+  IsDateString
 } from 'class-validator';
 export class CreateFavoritoTweetDto {
   @IsInt()
