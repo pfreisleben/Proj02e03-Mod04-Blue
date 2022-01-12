@@ -53,12 +53,10 @@ A idéia é criar um CRUD utilizando o framework NestJS, em um banco de dados re
 
 ### Retorno de {urlBase}/usuarios
 
-        [{"id": 3,"email": "teste@gmail.com","senha": "teste","nome": "teste",
-        "imagem": "https://lh3.googleusercontent.com/eWdfOze-Fbc9s3m0HrnyGrNRghsOYt4ragW5T0cpqBtsNLa4cALROO61jo_VKqDSgn-liITsOI-4JLc=w1349-h621",
-        "bio": "Teste", "nascimento": "28/12/2021", "criado_em": "28/12/2021"}]
+        [{"id": 5,"nome": "teste","sobrenome": "teste","email": "teste@teste.com","senha": "teste", "sobre": "Teste", "aniversario": "28/12/2021", "criado_em": "28/12/2021"}]
 
 ## Validações
-### Tadas as rotas sendo validadas atraves dos decorators
+### Todas as rotas sendo validadas atraves dos decorators
 
 ## Listando objeto específico (GET)
 
