@@ -19,7 +19,7 @@ A idéia é criar um CRUD utilizando o framework NestJS, em um banco de dados re
 
 ## Tabelas utilizadas
 
-      O projeto possui quatro tabelas: Usuário(com user e senha), Seguidores, Seguindo, Tweet, Categoria e Favorito.
+      O projeto possui seis tabelas: Usuário(com user e senha), Seguidores, Seguindo, Tweet, Categoria e Favorito.
       Temos duas tabelas se relacionando Many to Many de acordo com o diagrama abaixo: 
       
 ![Proj 02](https://github.com/pfreisleben/Projeto02-Blue-Twitter/blob/master/db_final_diagram.png)
