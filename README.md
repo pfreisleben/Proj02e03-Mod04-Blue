@@ -77,22 +77,22 @@ A idéia é criar um CRUD utilizando o framework NestJS, em um banco de dados re
 #### Para adicionar um novo objeto na tabela **USUÁRIOS**:
 
       Rota: /usuarios/
-      Fomato JSON esperado: { "email": String, "senha": String, "nome": string, "imagem": String?, "bio": String, "nascimento": DateTime }
+      Fomato JSON esperado: { "nome": String, "sobrenome": String, "email": String, "senha": String, "sobre": String, "aniversario": String }
 
 #### Para adicionar um novo objeto na tabela **SEGUIDORES**:
 
       Rota: /seguidores/
-      Fomato JSON esperado: { "idSeguidor": Number, "usuarioId": Number }
+      Fomato JSON esperado: { "nome": String, "idSeguidor": Number, "usuarioId": Number }
 
 #### Para adicionar um novo objeto na tabela **SEGUINDO**:
 
       Rota: /seguindo/
-      Fomato JSON esperado: { "usuarioId": Number, "idSeguindo": Number}
+      Fomato JSON esperado: { "nome": String, "usuarioId": Number, "idSeguindo": Number}
       
 #### Para adicionar um novo objeto na tabela **TWEETS**:
 
       Rota: /tweets/
-      Fomato JSON esperado: { "texto": String, "emoji": String, "usuarioId": Number }
+      Fomato JSON esperado: { "conteudo": String, "usuarioId": Number }
    
 #### Para adicionar um novo objeto na tabela **CATEGORIA**:
 
