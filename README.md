@@ -19,7 +19,7 @@ A idéia é criar um CRUD utilizando o framework NestJS, em um banco de dados re
 
 ## Tabelas utilizadas
 
-      O projeto possui quatro tabelas: Usuário(com user e senha), Seguidores, Seguindo e Tweet.
+      O projeto possui quatro tabelas: Usuário(com user e senha), Seguidores, Seguindo, Tweet, Categoria e Favorito.
       Temos duas tabelas se relacionando Many to Many de acordo com o diagrama abaixo: 
       
 ![Proj 02](https://github.com/pfreisleben/Projeto02-Blue-Twitter/blob/master/db_final_diagram.png)
@@ -46,6 +46,8 @@ A idéia é criar um CRUD utilizando o framework NestJS, em um banco de dados re
         {urlBase}/seguidores
         {urlBase}/seguindo
         {urlBase}/tweets
+        {urlBase}/categoria-tweets
+        {urlBase}/favorito-tweets
 
 ## Os retornos da aplicação estão no formato JSON, exemplo:
 
@@ -66,6 +68,8 @@ A idéia é criar um CRUD utilizando o framework NestJS, em um banco de dados re
         {urlBase}/seguidores/2
         {urlBase}/seguindo/3
         {urlBase}/tweets/4
+        {urlBase}/categoria-tweets/5
+        {urlBase}/favorito-tweets/6
         Será retornado um objeto no formato JSON com os dados do banco.
 
 ## Adicionando novos objetos (POST)
@@ -91,6 +95,16 @@ A idéia é criar um CRUD utilizando o framework NestJS, em um banco de dados re
 
       Rota: /tweets/
       Fomato JSON esperado: { "texto": String, "emoji": String, "usuarioId": Number }
+   
+#### Para adicionar um novo objeto na tabela **CATEGORIA**:
+
+      Rota: /categoria/
+      Fomato JSON esperado: { "tweetId": Number, "assignedBy": String, "categoriaId": Number }
+   
+#### Para adicionar um novo objeto na tabela **FAVORITO**:
+
+      Rota: /favorito/
+      Fomato JSON esperado: { "tweetId": Number, "assignedBy": String, "usuarioId": Number }
       
 
 ### Caso exista algum problema com os dados do JSON enviado, a aplicação retornará um erro com detalhes.
@@ -129,11 +143,19 @@ A idéia é criar um CRUD utilizando o framework NestJS, em um banco de dados re
 
       Rota: /tweets/{id}
       Fomato JSON esperado: { "texto": String, "emoji": String, "usuarioId": Number }
+      
+#### Para atualizar um objeto na tabela **CATEGORIA**:
+
+      Rota: /categoria/{id}
+      Fomato JSON esperado: { "tweetId": Number, "assignedBy": String, "categoriaId": Number }
+   
+#### Para atualizar um objeto na tabela **FAVORITO**:
+
+      Rota: /favorito/{id}
+      Fomato JSON esperado: { "tweetId": Number, "assignedBy": String, "usuarioId": Number }
 
 ### Caso o objeto seja atualizado com sucesso, a API retornará um JSON igual ao objeto atualizado no banco.
 
-
-      
 
 ## Excluindo um objeto (DELETE)
 
@@ -150,8 +172,17 @@ A idéia é criar um CRUD utilizando o framework NestJS, em um banco de dados re
 #### Para deletar um objeto na tabela **SEGUINDO**:
 
       Rota: /seguindo/{id}
+      
 #### Para deletar um objeto na tabela **TWEETS**:
 
       Rota: /tweets/{id}
+      
+#### Para deletar um objeto na tabela **CATEGORIA**:
+
+      Rota: /categoria/{id}
+
+#### Para deletar um objeto na tabela **FAVORITO**:
+
+      Rota: /favorito/{id}
 
 ### Caso o objeto seja deletado com sucesso, a API retornará um JSON igual ao objeto deletado.
