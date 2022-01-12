@@ -1,4 +1,4 @@
-# API - Projeto 2 do Módulo 4 BlueEdTech
+# API - Projeto 2 do Módulo 4 BlueEdTech Parte 2 ("Projeto 3": Adicionado validação JWT, banco many-to-many)
 
 <img align="right" height="170" width="200" src="https://c.tenor.com/RNpjaR9Iq0oAAAAC/files-api.gif">
 
@@ -19,17 +19,16 @@ A idéia é criar um CRUD utilizando o framework NestJS, em um banco de dados re
 
 ## Tabelas utilizadas
 
-      O projeto possui quatro tabelas: Usuário, Seguidores, Seguindo e Tweet.
-      O banco foi modelado seguindo a imagem abaixo: 
-      (Foi adicionamo email e senha na tabela usuários)
+      O projeto possui quatro tabelas: Usuário(com user e senha), Seguidores, Seguindo e Tweet.
+      Temos duas tabelas se relacionando Many to Many de acordo com o diagrama abaixo: 
       
-![Proj 02](https://user-images.githubusercontent.com/55242537/147594560-77bfb778-25f8-41e1-bdfd-4402a57900b7.png)
+![Proj 02](https://github.com/pfreisleben/Projeto02-Blue-Twitter/blob/master/db_final_diagram.png)
 
 
 ## Iniciando o aplicativo
 
     Em modo de desenvolvimento:
-    npm run start:dev
+    npm run start:dev 
     Em ambiente de produção:
     npm run start
 
@@ -55,6 +54,9 @@ A idéia é criar um CRUD utilizando o framework NestJS, em um banco de dados re
         [{"id": 3,"email": "teste@gmail.com","senha": "teste","nome": "teste",
         "imagem": "https://lh3.googleusercontent.com/eWdfOze-Fbc9s3m0HrnyGrNRghsOYt4ragW5T0cpqBtsNLa4cALROO61jo_VKqDSgn-liITsOI-4JLc=w1349-h621",
         "bio": "Teste", "nascimento": "28/12/2021", "criado_em": "28/12/2021"}]
+
+## Validações
+### Tadas as rotas sendo validadas atraves dos decorators
 
 ## Listando objeto específico (GET)
 
@@ -100,7 +102,7 @@ A idéia é criar um CRUD utilizando o framework NestJS, em um banco de dados re
       A rota /auth é utilizada para fazer a autenticação do usuário.
       Esta rota espera um requisição do tipo POST, com um JSON contendo o campo "email" e "senha" do usuário.
       Caso a autenticação seja feita com sucesso(Usuário existir e email e senha estarem corretos), será retornado o email, junto com um Token JWT.
-      
+      O JWT esta intermediando alem da autenticação a autorização ou seja, além do token de acesso o usuário só pode interagir se o token for válido.
       Esta rota também aceita uma requisição do tipo GET, que retornará a mensagem "logado", caso o usuário esteja logado.
       
 
