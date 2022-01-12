@@ -1,4 +1,4 @@
-# API - Projeto 2 do Módulo 4 BlueEdTech Parte 2 ("Projeto 3": Adicionado validação JWT, banco many-to-many)
+# API - Projeto 3 do Módulo 4 BlueEdTech Parte 2 ("Projeto 3": Adicionado validação JWT, banco many-to-many)
 
 <img align="right" height="170" width="200" src="https://c.tenor.com/RNpjaR9Iq0oAAAAC/files-api.gif">
 
