@@ -43,10 +43,11 @@ export class UsuariosService {
     return await this.prisma.usuario.findFirst({ where: { id } });
   }
 
-  async update(id: number, updateUsuarioDto: UpdateUsuarioDto) {
+  async update(id: number, data: UpdateUsuarioDto) {
+    data.senha = await bcrypt.hash(data.senha, 10);
     return await this.prisma.usuario.update({
       where: { id },
-      data: { ...updateUsuarioDto },
+      data: { ...data },
     });
   }
 
