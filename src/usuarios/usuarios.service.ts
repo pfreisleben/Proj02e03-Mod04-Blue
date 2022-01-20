@@ -11,8 +11,17 @@ export class UsuariosService {
   constructor(private prisma: PrismaService) {}
 
   async create(data: CreateUsuarioDto): Promise<Usuario> {
+    const user = await this.prisma.usuario.findFirst({
+      where: {
+        email: data.email,
+      },
+    });
+    if(user) {
+      throw new HttpException('Email já cadastrado!', HttpStatus.BAD_REQUEST)
+    }
     data.senha = await bcrypt.hash(data.senha, 10);
     return await this.prisma.usuario.create({ data });
+
   }
 
   async findByLogin(login: LoginDto): Promise<Usuario> {
